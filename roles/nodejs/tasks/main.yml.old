@@ -11,11 +11,3 @@
     - nodejs
     - npm
   when: ansible_facts['pkg_mgr'] == "yum"
-
-- name: Install node.js packages globally.
-  npm:
-    name: date-and-time
-    registry: 'http://registry.npmjs.org/'
-    path: /home/ec2-user
-    
-    #    global: yes
