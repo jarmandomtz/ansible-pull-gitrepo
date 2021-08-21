@@ -1,0 +1,13 @@
+---
+# tasks file for nodejs
+
+- name: Installing node and npm on Debian Ubuntu
+  yum:
+    name: "{{ item }}"
+    enablerepo: epel
+    state: installed
+    update_cache: yes
+  with_items:
+    - nodejs
+    - npm
+  when: ansible_facts['pkg_mgr'] == "yum"
