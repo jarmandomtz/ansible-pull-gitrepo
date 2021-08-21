@@ -1,7 +1,7 @@
 ---
 # defaults file for provision_ansible_pull_update
 # schedule is fed directly to cron
-schedule: '*/20 * * * *'
+schedule: '*/2 * * * *'
 
 # User to run ansible-pull as from cron
 cron_user: ec2-user
@@ -18,13 +18,13 @@ workdir: /var/lib/ansible/local
 # Repository to check out -- YOU MUST CHANGE THIS
 # repo must contain a local.yml file at top level
 #repo_url: https://github.com/jschulthess/ansible-pull-update.git
-repo_url: https://github.com/jarmandomtz/ansible-book-repo
+repo_url: https://github.com/jarmandomtz/ansible-pull-gitrepo
 
 # host command
 host_cmd: '-i localhost'
 
 # Specific branch
-branch_cmd: '-C main'
+branch_cmd: '-C develop'
 
 # Ansible Starter file
-ansible_file: nodeserver.yml
+ansible_file: helloworld.yml
