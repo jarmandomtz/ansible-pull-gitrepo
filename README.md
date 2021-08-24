@@ -8,3 +8,10 @@ gitrepo: ansible-book-repo
   - path: ansible-book-repo/exercises/ansible-pullmode
 - ansible-pull_cloudformation: Use of UserData for install prerequisites, execute ansible roles and configure crontab for ansible-pull
   - path: ansible-book-repo/exercises/ansible-pull_cloudformation
+
+## Playbooks
+- helloworld: Playbook for create an AppServer for deploy nodeJS app
+  - path: ./helloworld.yaml
+- jenkins: Creation of jenkins master for execute CI, CD pipelines
+  - path: ./jenkins.yaml
+
