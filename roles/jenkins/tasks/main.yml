@@ -1,21 +1,16 @@
 ---
 # tasks file for jenkins
 # AWS Linux comes with Java7, we need uninstall this and install Java8. Jenkins 2.54 and above needs Java8
-- name: Daemonize repository
-  yum:
-    name: epel-release
-    state: present
-
 - name: Install Java 11
   yum:
     name: java-11-openjdk-devel
     state: present
 
 - name: Install epel repo
-    action: ExecuteBash
-    inputs:
-      commands:
-        - sudo amazon-linux-extras install -y epel
+  action: ExecuteBash
+  inputs:
+    commands:
+      - sudo amazon-linux-extras install -y epel
 
 - name: Import Jenkins GPG key
   rpm_key:
