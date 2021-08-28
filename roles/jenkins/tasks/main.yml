@@ -6,11 +6,13 @@
     name: java-11-openjdk-devel
     state: present
 
-- name: Install epel repo
-  action: ExecuteBash
-  inputs:
-    commands:
-      - sudo amazon-linux-extras install -y epel
+- name: Shell commands
+  steps:
+    - name: Install epel repo
+      action: ExecuteBash
+      inputs:
+        commands:
+          - sudo amazon-linux-extras install -y epel
 
 - name: Import Jenkins GPG key
   rpm_key:
