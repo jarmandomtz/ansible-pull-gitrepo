@@ -6,18 +6,21 @@
     name: epel-release
     state: present
 
-- name: Install Java 8
+- name: Install Java 11
   yum:
     name: java-11-openjdk-devel
     state: present
 
-- name: Add Yum Jenkins repository
-  shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+- name: Install epel repo
+    action: ExecuteBash
+    inputs:
+      commands:
+        - sudo amazon-linux-extras install -y epel
 
 - name: Import Jenkins GPG key
   rpm_key:
     state: present
-    key: https://pkg.jenkins.io/redhat/jenkins.io.key
+    key: https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
 - name: Install jenkins
   yum:
@@ -31,3 +34,8 @@
     name: jenkins
     enabled: yes
     state: started
+
+#Tested on AMI Linux 2 instance and installed
+#    sudo amazon-linux-extras install epel
+#    sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+#    yum install -y jenkins
