@@ -9,6 +9,9 @@
 - name: Shell commands
   shell: sudo amazon-linux-extras install -y java-openjdk11
 
+- name: Add Yum Jenkins repository
+  shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
+  
 - name: Import Jenkins GPG key
   rpm_key:
     state: present
