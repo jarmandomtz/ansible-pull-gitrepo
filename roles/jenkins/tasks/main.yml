@@ -1,13 +1,13 @@
 ---
 # tasks file for jenkins
 # AWS Linux comes with Java7, we need uninstall this and install Java8. Jenkins 2.54 and above needs Java8
-- name: Install Java 11
-  yum:
-    name: java-11-openjdk-devel
-    state: present
+# AWS Linux 2 comes without Java, Jenkins 2.30X and above needs Java11
 
 - name: Shell commands
   shell: sudo amazon-linux-extras install -y epel
+
+- name: Shell commands
+  shell: sudo amazon-linux-extras install -y java-openjdk11
 
 - name: Import Jenkins GPG key
   rpm_key:
