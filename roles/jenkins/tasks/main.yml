@@ -7,12 +7,7 @@
     state: present
 
 - name: Shell commands
-  steps:
-    - name: Install epel repo
-      action: ExecuteBash
-      inputs:
-        commands:
-          - sudo amazon-linux-extras install -y epel
+  shell: sudo amazon-linux-extras install -y epel
 
 - name: Import Jenkins GPG key
   rpm_key:
