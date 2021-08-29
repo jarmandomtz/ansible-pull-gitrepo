@@ -15,3 +15,10 @@ gitrepo: ansible-book-repo
 - jenkins: Creation of jenkins master for execute CI, CD pipelines
   - path: ./jenkins.yaml
 
+## Jenkins role
+
+Reference,
+- https://archives.jenkins-ci.org/redhat-stable/
+- https://aws.amazon.com/es/blogs/compute/executing-ansible-playbooks-in-your-amazon-ec2-image-builder-pipeline/
+- https://pkg.jenkins.io/redhat-stable/
+- https://www.jenkins.io/doc/tutorials/tutorial-for-installing-jenkins-on-AWS/
