@@ -1,4 +1,4 @@
----
+--
 # tasks file for jenkins
 # AWS Linux comes with Java7
 # AWS Linux 2 comes without Java
@@ -27,7 +27,7 @@
   yum:
 # name: jenkins-2.99 #Signend with previos GPG key, is not working with current GPG key
 # Jenkins LTS 2.303.1 (2021-08-25)
-    name: "{{ jenkins.name }}"  #vars/main.yaml
+    name: jenkins.2.303.1
     enablerepo: jenkins
     state: present
 
