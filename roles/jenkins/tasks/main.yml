@@ -1,17 +1,23 @@
 ---
 # tasks file for jenkins
-# AWS Linux comes with Java7, we need uninstall this and install Java8. Jenkins 2.54 and above needs Java8
-# AWS Linux 2 comes without Java, Jenkins 2.30X and above needs Java11
+# AWS Linux comes with Java7
+# AWS Linux 2 comes without Java
 
+# Java 11 supported in Jenkins LTS 2.164.1 and later
+# Java 8 supported in Jenkins LTS 2.54 and later
+# Java 7 supported in Jenkins LTS 1.625.1 and later
+
+#Prerequisites, Install java
 - name: Shell commands
   shell: sudo amazon-linux-extras install -y epel
 
 - name: Shell commands
   shell: sudo amazon-linux-extras install -y java-openjdk11
 
+#Install Jenkins
 - name: Add Yum Jenkins repository
   shell: wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat/jenkins.repo
-  
+
 - name: Import Jenkins GPG key
   rpm_key:
     state: present
@@ -19,8 +25,9 @@
 
 - name: Install jenkins
   yum:
-#    name: jenkins-2.99 #Signend with previos GPG key, is not working with current GPG key
-    name: jenkins
+# name: jenkins-2.99 #Signend with previos GPG key, is not working with current GPG key
+# Jenkins LTS 2.303.1 (2021-08-25)
+    name: jenkins.2.303.1
     enablerepo: jenkins
     state: present
 
