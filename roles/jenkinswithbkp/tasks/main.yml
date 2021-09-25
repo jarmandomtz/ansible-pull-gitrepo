@@ -1,0 +1,18 @@
+---
+# tasks file for jenkins bakup
+
+#Prerequisites, Download bkp
+- name: Download bkp from S3
+  shell: |
+    sudo mkdir -p /tmp/bkps/jenkins
+    sudo aws s3 cp s3://esausi-backups/jenkins/jenkins-bkp-latest.tar.gz /tmp/bkps/jenkins/
+    sudo aws s3 cp s3://esausi-backups/jenkins/jenkins-aws-createbkp.sh /tmp/bkps/jenkins/
+    sudo chmod 555 /tmp/bkps/jenkins/jenkins-aws-createbkp.sh
+    cd /tmp/bkps/jenkins
+    tar -xf jenkins-bkp-latest.tar.gz
+    cp -r ./jobs/. /var/lib/jenkins/jobs
+    cp -r ./secrets/. /var/lib/jenkins/secrets
+    cp -r ./credentials.xml /var/lib/jenkins/
+    cp -r ./periodicBackup.xml /var/lib/jenkins/
+    sudo chown -R jenkins /var/lib/jenkins
+    sudo chgrp -R jenkins /var/lib/jenkins
